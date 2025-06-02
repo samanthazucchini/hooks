@@ -1,0 +1,6 @@
+npx expo install react-dom react-native-web @expo/metro-runtime
+npx expo install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated react-native-pager-view
+npx expo install @react-navigation/native-stack
+npx expo install react-native-modal-datetime-picker @react-native-community/datetimepicker
+npx expo install @react-native-async-storage/async-storage
