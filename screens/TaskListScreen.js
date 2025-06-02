@@ -18,20 +18,16 @@ import { ThemeContext } from '../context/ThemeContext';
 const { width, height } = Dimensions.get('window');
 
 const TaskListScreen = () => {
-  // useContext: para obter o tema atual e alternar entre claro/escuro
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   const navigation = useNavigation();
 
-  // useState: para controlar lista de tarefas, input de texto e data da nova tarefa
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [newTaskDate, setNewTaskDate] = useState('');
 
-  // useRef: para referenciar o input e focar automaticamente no campo ao abrir a tela
   const taskInputRef = useRef(null);
   const dateInputRef = useRef(null);
 
-  // useEffect: para executar ações ao montar o componente, como focar no input e carregar tarefas iniciais
   useEffect(() => {
     taskInputRef.current?.focus();
     setTasks([
@@ -80,15 +76,18 @@ const TaskListScreen = () => {
     navigation.navigate('TaskEdit', { 
       task, 
       onSave: (updatedTask) => {
-        setTasks(tasks.map(t => t.id === updatedTask.id ? updatedTask : t));
+        setTasks(currentTasks => 
+          currentTasks.map(t => t.id === updatedTask.id ? updatedTask : t)
+        );
       },
       onDelete: (taskId) => {
-        setTasks(tasks.filter(t => t.id !== taskId));
+        setTasks(currentTasks => 
+          currentTasks.filter(t => t.id !== taskId)
+        );
       }
     });
   };
 
-  // useMemo: para calcular total de tarefas e pendentes, otimizando re-renderizações
   const { totalTasks, pendingTasks } = useMemo(() => {
     const total = tasks.length;
     const pending = tasks.filter(task => !task.completed).length;

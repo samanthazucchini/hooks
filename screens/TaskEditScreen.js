@@ -155,6 +155,7 @@ const TaskEditScreen = () => {
         mode="date"
         onConfirm={handleDateConfirm}
         onCancel={hideDatePicker}
+
       />
 
       <Modal
@@ -209,6 +210,7 @@ const getStyles = (isDarkMode) => StyleSheet.create({
   backIcon: {
     fontSize: 24,
     color: '#ffffff',
+     marginRight: 5,
   },
   title: {
     fontSize: 20,
@@ -218,6 +220,7 @@ const getStyles = (isDarkMode) => StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: 10,
     paddingVertical: 10,
+    textAlign: 'center',
   },
   themeButton: {
     backgroundColor: isDarkMode ? '#663364' : '#8c618b',
@@ -226,18 +229,21 @@ const getStyles = (isDarkMode) => StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    marginLeft: 30, 
+    marginRight: 30, 
   },
   themeIcon: {
     fontSize: 24,
     color: '#ffffff',
   },
-  taskContainer: {
-    backgroundColor: isDarkMode ? 'rgba(102, 51, 100, 0.8)' : 'rgba(255, 235, 255, 0.9)',
-    borderRadius: 10,
-    padding: 20,
-    marginHorizontal: 30,
-    marginTop: 20,
-  },
+ taskContainer: {
+  backgroundColor: isDarkMode ? 'rgba(102, 51, 100, 0.8)' : 'rgba(255, 235, 255, 0.9)',
+  borderRadius: 10,
+  padding: 20,
+  marginHorizontal: 42, 
+  marginTop: -10,
+  width: '78%', 
+},
   taskTitle: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -259,6 +265,7 @@ const getStyles = (isDarkMode) => StyleSheet.create({
   },
   propertyValue: {
     fontSize: 16,
+    padding: 8,
     color: isDarkMode ? '#ffebff' : '#663364',
   },
   calendarIcon: {
